@@ -1,0 +1,106 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js">
+
+    $(document).ready(function() {
+    $('#email_input').on('blur', function() {
+        var email = $(this).val();
+
+        $.ajax({
+            url: '/check_email_exists/',
+            data: {'email': email},
+            dataType: 'json',
+            success: function(data) {
+                if (data.exists) {
+                    alert('Email already exists!');
+                    // You can perform other actions here, like disabling the submit button
+                }
+            }
+        });
+    });
+});
+
+
+
+    </script>
+
+
+
+<form id="form3" name="form3" method="post" action="/myapp/add_school_post/#abc" enctype="multipart/form-data">
+     {% csrf_token %}
+ <table class="table table-bordered ">
+  <tr>
+    <th> Name</th>
+    <td>
+
+      <input type="text" name="name" id="textfield" pattern="[a-z A-Z]+" class="form-control" required />
+    </td>
+  </tr>
+     <tr>
+    <th>Image</th>
+    <td>
+
+      <input type="file" name="image" id="" class="form-control" required  />
+    </td>
+  </tr>
+     <tr>
+    <tH>Place</tH>
+    <td>
+
+      <input type="text" name="place" id=""   class="form-control" required />
+    </td>
+  </tr>
+     <tr>
+    <th>Post</th>
+    <td>
+
+      <input type="text" name="post" id=""  pattern="[a-z A-Z]+" class="form-control" required />
+    </td>
+  </tr>
+     <tr>
+    <th>Phone</th>
+    <td>
+
+      <input type="text" name="phone" id=""   pattern="[6789][0-9]{9}" class="form-control" required />
+    </td>
+  </tr>
+     <tr>
+    <th>District</th>
+    <td>
+
+      <input type="text" name="district" id="" class="form-control" required  pattern="[a-z A-Z]+"  />
+    </td>
+  </tr>
+     <tr>
+    <th>Email</th>
+    <td>
+
+      <input type="email" name="email" id="email_input"  class="form-control" required />
+    </td>
+  </tr>
+     <tr>
+    <th>Type</th>
+    <td>
+
+     <b>Aided College  :&nbsp</b><input type="radio" name="type" id="" value="aided"  required/><br>
+       <b>Govt College  &nbsp :</b> <input type="radio" name="type" id="" value="govt" /><br>
+   <b>Self College  &nbsp &nbsp &nbsp</b><input type="radio" name="type" id="" value="self" /><br>
+    </td>
+  </tr>
+
+
+
+  <tr align="center">
+    <td colspan="2"><input type="submit" name="button" id="button" value="Submit" class="btn btn-success"/>
+    </td>
+
+  </tr>
+</table>
+       </form>
+
+    <script>
+
+    </script>
+
+{% endblock %}

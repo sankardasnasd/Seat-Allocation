@@ -1,0 +1,28 @@
+{% extends 'college/collegeindex.html' %}
+{% block body %}
+<form action="/myapp/edit_fecility_post/#abc" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+    <table class="table table-bordered table-stripped">
+
+
+
+<th>Image</th>
+           <td>                      <img src="{{ data.image }}"  width="200px" height="200px"><br>
+
+               <input type="file" name="image" class="form-control">
+
+               <input type="hidden" name="id" value="{{ data.id }}">
+           </td>
+</tr> <tr>
+
+<th>Name</th>
+           <td><input type="text" name="name"  value="{{ data.name }}" pattern="[a-z A-Z]+" class="form-control"></td>
+</tr>
+
+        <tr><td></td>
+            <td><input type="submit" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}

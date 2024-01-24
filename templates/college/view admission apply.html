@@ -1,0 +1,54 @@
+{% extends 'college/collegeindex.html' %}
+{% block body %}
+<form method="post" action="/myapp/view_applied_admission_post/#abc">
+{% csrf_token %}
+
+
+    <table class="left-pull">
+
+    <tr>
+        <th>From</th>
+        <td>
+            <input type="date" placeholder="Search here"required name="f" class="form-control">
+        </td>
+        <th>To</th>
+         <td>
+            <input type="date" placeholder="Search here" required name="t" class="form-control">
+        </td>
+        <td>
+            <input type="submit" value="Search" class="btn btn-info">
+        </td>
+    </tr>
+</table>
+<br>
+<table border="1" class="table table-hover table-bordered table-stripped">
+    <tr>
+
+        <th>Sl no</th>
+        <th>Date</th>
+        <th>Course</th>
+        <th>Student Name</th>
+        <th> File</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+
+        <td>{{ i.date }}</td>
+                        <td>{{ i.ALLOTMENT.COURSE.name }}</td>
+
+        <td>{{ i.STUDENT.name }}</td>
+    <td>    <a href="{{ i.file }}" class="btn btn-info">View</a>
+</td>
+        <td>    <a href="/myapp/accept_admission/{{ i.id }}#abc" class="btn btn-success">Accept</a>
+</td>
+  <td>    <a href="/myapp/reject_admission/{{ i.id }}#abc" class="btn btn-danger" onclick="return confirm('Are You Sure')">Reject</a>
+</td>
+
+
+    </tr>
+
+    {% endfor %}
+</table>
+</form>
+{% endblock %}

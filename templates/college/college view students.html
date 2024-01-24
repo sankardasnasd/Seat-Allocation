@@ -1,0 +1,56 @@
+{% extends 'college/collegeindex.html' %}
+{% block body %}
+
+<form action="/myapp/college_view_students_post/#abc" method="post">
+    {% csrf_token %}
+    <table class="pull-left">
+        <tr>
+                   <th>Name</th>
+            <td><input type="text" name="search" class="form-control"></td>
+            <td><input type="submit" value="search" class="btn btn-success"></td>
+        </tr>
+
+    </table><br><br>
+
+
+
+    <table class="table table-bordered py-5">
+<tr>
+
+    <th>Sl no</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Contact</th>
+{#    <th></th>#}
+
+</tr>
+        {% for i in data %}
+<tr>
+
+    <th>
+
+        {{ forloop.counter }}
+    </th>
+    <td>
+        {{ i.name }}<br>
+        <img src="{{ i.image }}" width="200px" height="200px">
+
+    </td>
+    <td>
+        {{ i.place }}<br>
+        {{ i.post }}<br>
+        {{ i.district }}<br>
+
+    </td>
+    <td>        {{ i.email }}<br>{{ i.phone }}
+</td>
+{#    <td width="50px">    <a href="/myapp/chat1/{{ i.STUDENT.LOGIN.id }}" class="btn btn-success">Chat</a></td>#}
+
+
+</tr>
+        {% endfor %}
+    </table>
+
+</form>
+
+{% endblock %}

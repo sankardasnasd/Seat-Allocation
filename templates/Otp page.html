@@ -1,0 +1,61 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Seat</title>
+<!-- Meta tag Keywords -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Trendy Flat Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Meta tag Keywords -->
+<!--font-awesome-css-->
+<link href="/static/login/css/font-awesome.css" rel="stylesheet">
+<!--//font-awesome-css-->
+<!-- css files -->
+<link href="/static/login/css/style.css" rel="stylesheet" type="text/css" media="all">
+<!-- online-fonts -->
+<link href="//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900iSlabo+27px&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+<!--//online-fonts -->
+<body>
+<!--header-->
+<div class="agileheader">
+	<h1>Seat Allocation</h1>
+</div>
+<!--//header-->
+<!--main-->
+<section class="main-w3l">
+	<div class="w3layouts-main">
+		<h2>Otp </h2><br>
+			<div class="w3ls-form">
+
+ <form id="form3" name="form3" method="post" action="/myapp/forget_password_post/">
+     {% csrf_token %}
+     <div class="email-w3ls">
+						<input type="email" name="em_add" placeholder=" Enter Valid Otp Number" required="">
+						<span class="icon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+					</div>	
+
+{#					<span><input type="checkbox" />Remember Me</span>#}
+						<div class="clear"></div>
+						<input type="submit" value="Click" name="login">
+				</form>
+			</div>	
+
+	</div>	
+</section>
+<!--//main-->
+<!--footer-->
+{#<div class="footer-w3l">#}
+{#    <p>Seat Allocation</p>#}
+{#</div>#}
+<!--//footer-->
+
+</body>
+</html>

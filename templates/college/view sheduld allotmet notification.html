@@ -1,0 +1,45 @@
+{% extends 'college/collegeindex.html' %}
+{% block body %}
+<form method="post" action="/myapp/view_sheduled_notification_post/">
+{% csrf_token %}
+
+
+    <table class="left-pull">
+
+    <tr>
+        <th>From</th>
+        <td>
+            <input type="date" placeholder="Search here"required name="f" class="form-control">
+        </td>
+        <th>To</th>
+         <td>
+            <input type="date" placeholder="Search here" required name="t" class="form-control">
+        </td>
+        <td>
+            <input type="submit" value="Search" class="btn btn-info">
+        </td>
+    </tr>
+</table>
+<br>
+<table border="1" class="table table-hover table-bordered table-stripped">
+    <tr>
+
+        <th>Sl no</th>
+        <th>Date</th>
+        <th>Course</th>
+        <th>Qualification</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.COURSE.name }}</td>
+        <td>{{ i.qualification }}</td>
+
+
+    </tr>
+
+    {% endfor %}
+</table>
+</form>
+{% endblock %}

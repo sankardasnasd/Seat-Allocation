@@ -1,0 +1,22 @@
+
+{% extends 'college/collegeindex.html' %}
+{% block body %}
+<form action="/myapp/add_depart_post/#abc" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+    <table class="table table-bordered">
+
+
+<tr>
+
+<td>Department Name</td>
+           <td><input type="text" pattern="[a-z A-Z]+" name="name" class="form-control" required></td>
+</tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-success" ></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}

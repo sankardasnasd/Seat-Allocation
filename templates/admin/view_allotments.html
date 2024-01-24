@@ -1,0 +1,65 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+
+<form action="/myapp/view_allotment_post/" method="post">
+    {% csrf_token %}
+    <table class="pull-left">
+        <tr>
+                   <th>From</th>
+            <td><input type="date" name="search" class="form-control" required></td>
+            <th>To</th>
+            <td><input type="date" name="search1" class="form-control" required></td>
+            <td><input type="submit" value="search" class="btn btn-success"></td>
+        </tr>
+
+    </table>
+<br><br>
+
+
+
+
+    <table class="table table-bordered ">
+<tr>
+
+    <th>Sl no</th>
+    <th>Date</th>
+    <th>College Name</th>
+    <th>Course</th>
+    <th>Qualification</th>
+    <th></th>
+
+</tr>
+        {% for i in data %}
+<tr>
+
+    <td>
+
+        {{ forloop.counter }}
+    </td> <th>
+
+        {{ i.date }}
+    </th>
+    <td>
+        {{ i.COLLEGE.name }}<br>
+
+    </td>
+    <td>
+  {{ i.COURSE.name }}
+
+    </td>
+  <td>
+  {{ i.qualification }}
+
+    </td>
+
+</td>
+<td><a href="/myapp/delete_allotment/{{ i.id }}" class="btn btn-danger" onclick="return confirm('Are You Sure')" >Delete</td>
+
+</tr>
+        {% endfor %}
+    </table>
+
+</form>
+
+{% endblock %}

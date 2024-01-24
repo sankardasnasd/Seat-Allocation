@@ -1,0 +1,37 @@
+{% extends 'college/collegeindex.html' %}
+{% block body %}
+<form action="/myapp/edit_subject_post/#abc" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+    <table class="table table-bordered">
+
+
+<tr>
+
+<th>Course Name</th>
+           <td><select name="course" class="form-control">
+                          <option hidden value="{{ data.COURSE.id }}">{{data.COURSE.name }}
+
+               {% for i in data1 %}
+               <option value="{{ i.id }}">{{ i.name }}
+                   {% endfor %}
+               </option>
+           </select></td>
+</tr>
+<tr>
+
+<th>Subject Name</th>
+           <td><input type="text" name="name" value="{{ data.name }}" class="form-control" pattern="[a-z A-Z]+" ></td>
+</tr>
+<tr>
+
+
+               <input type="hidden" name="id" value="{{ data.id }}">
+</tr>
+
+        <tr><td></td>
+            <td><input type="submit" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}

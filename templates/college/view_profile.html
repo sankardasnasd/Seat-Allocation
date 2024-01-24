@@ -1,0 +1,49 @@
+{% extends 'college/collegeindex.html' %}
+{% block body %}
+    <center>
+    <div class="container">
+<div class="col-6">
+    <form>
+
+    <table class="table table-bordered ">
+        <tr>
+                    <th>Name</th>
+                    <th>{{ data.name }}
+                    <br><img src="{{ data.image }}" width="200px" height="200px">
+                    </th>
+
+
+        </tr><tr>
+                    <th>Address</th>
+                    <th>
+                        {{ data.place }}<br>
+                        {{ data.post }}<br>
+                        {{ data.district }}<br>
+                    </th>
+
+
+        </tr><tr>
+                    <th>Email</th>
+                    <th>{{ data.email }}</th>
+
+
+        </tr>
+        <tr>
+                    <th>Phone</th>
+                    <th>{{ data.phone }}</th>
+
+
+        </tr> <tr>
+                    <th>Type</th>
+                    <th>{{ data.type }}</th>
+
+
+        </tr>
+    </table>
+</form>
+
+</div>
+</div>
+
+    </center>
+{% endblock %}

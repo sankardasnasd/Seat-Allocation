@@ -1,0 +1,85 @@
+
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+
+<form id="form3" name="form3" method="post" action="/myapp/edit_college_post/#abc" enctype="multipart/form-data">
+     {% csrf_token %}
+ <table class="table table-bordered">
+  <tr>
+    <th> Name</th>
+    <td>
+
+      <input type="hidden" name="id" id="" value="{{ data.id }}" />
+      <input type="text" name="name" id="textfield" value="{{ data.name }}" class="form-control"  pattern="[a-z A-Z]+" />
+    </td>
+  </tr>
+     <tr>
+    <th>Image</th>
+    <td>
+
+      <input type="file" name="image" id="" class="form-control"  /><br>
+        <img src="{{ data.image }}" height="200px" width="250px">
+
+    </td>
+  </tr>
+     <tr>
+    <th>Place</th>
+    <td>
+
+      <input type="text" name="place" value="{{ data.place }}"  id=""   class="form-control" />
+    </td>
+  </tr>
+     <tr>
+    <th>Post</th>
+    <td>
+
+      <input type="text" name="post" id=""  value="{{ data.post }}"    pattern="[a-z A-Z]+" class="form-control"  />
+    </td>
+  </tr>
+     <tr>
+    <th>Phone</th>
+    <td>
+
+      <input type="text" name="phone" id="" value="{{ data.phone }}" pattern="[6789][0-9]" class="form-control"   />
+    </td>
+  </tr>
+     <tr>
+    <th>District</th>
+    <td>
+
+      <input type="text" name="district" id="" value="{{ data.district }}" class="form-control"   pattern="[a-z A-Z]+" />
+    </td>
+  </tr>
+     <tr>
+    <th>Email</th>
+    <td>
+
+      <input type="email" name="email" id=""     value="{{ data.email }}"  class="form-control"  />
+    </td>
+  </tr>
+          <tr>
+    <th>Type</th>
+    <td>
+
+     Aided College<input type="radio" name="type" id="" value="aided"  {% if data.type == 'aided' %} checked
+    {% else %}{% endif %}/>
+       Govt College <input type="radio" name="type" id="" value="govt"   {% if data.type == 'govt' %} checked
+    {% else %}{% endif %}/>
+   Self College<input type="radio" name="type" id="" value="self"  {% if data.type == 'self' %} checked
+    {% else %}{% endif %} />
+    </td>
+  </tr>
+
+
+
+
+  <tr align="center">
+    <td colspan="2"><input type="submit" name="button" id="button" value="Submit"  class="btn btn-success"/>
+    </td>
+
+  </tr>
+</table>
+       </form>
+
+{% endblock %}

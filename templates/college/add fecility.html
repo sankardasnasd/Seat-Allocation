@@ -1,0 +1,22 @@
+{% extends 'college/collegeindex.html' %}
+{% block body %}
+<form action="/myapp/add_fecility_post/#abc" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+    <table class="table table-bordered">
+
+
+
+<th>Image</th>
+           <td><input type="file" name="image" class="form-control" required></td>
+</tr> <tr>
+
+<th>Name</th>
+           <td><input type="text" name="name" class="form-control" pattern="[a-z A-Z]+" required></td>
+</tr>
+
+        <tr><td></td>
+            <td><input type="submit" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

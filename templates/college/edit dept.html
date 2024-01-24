@@ -1,0 +1,22 @@
+{% extends 'college/collegeindex.html' %}
+{% block body %}
+<form action="/myapp/edit_depart_post/#abc" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+    <table class="table table-bordered" >
+
+
+<tr>
+
+<td>Department Name</td>
+           <td><input type="text" name="name" pattern="[a-z A-Z]+"  value="{{ data.name }}" class="form-control"></td>
+           <td><input type="hidden" name="id" value="{{ data.id }}"></td>
+</tr>
+
+        <tr>            <td></td>
+
+            <td><input type="submit" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}

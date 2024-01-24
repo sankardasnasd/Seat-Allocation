@@ -1,0 +1,34 @@
+
+
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+    <div class="container ">
+
+    <div class="border my-4">
+    <div class="row">
+  <div class="mx-auto ">
+       <div class=" p-3">
+    <tr>
+
+       <form method="post" action="/myapp/complaint_reply_post/#abc">
+           {% csrf_token %}
+        <table border="1" class="table table-hover table-bordered table-stripped">
+
+         <tr>
+        <th>Reply</th>
+        <th>  <input type="hidden" name="id" value="{{ data.id }}" >
+            <input type="text" value=""  placeholder="enter reply" name="reply" class="form-control col-6" required><br>
+    </tr>
+        <tr>
+            <th></th>
+            <th>        <input type="submit" value="submit"  class="btn btn-success  form-control"></th>
+</th>
+        </tr>
+
+       </form>
+</tr>
+    </table>
+       </div>
+  </div>
+{% endblock %}
